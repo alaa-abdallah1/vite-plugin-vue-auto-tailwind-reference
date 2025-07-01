@@ -15,6 +15,7 @@
     "node": ">=20.0.0"
   },
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc --watch",
@@ -38,14 +39,23 @@
     "@types/estree": "^1.0.5",
     "@types/json-schema": "^7.0.15",
     "@types/node": "^22.15.20",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "vite": "^7.0.0"
   },
-  "dependencies": {
-    "vite": "^6.3.5"
+  "peerDependencies": {
+    "vite": ">=5.0.0"
   },
   "files": [
     "dist",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  }
 }
