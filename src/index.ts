@@ -28,7 +28,7 @@ const tailwindAutoReference = (
 
   const getReferenceStr = (reference: string | string[]) =>
     (Array.isArray(reference) ? reference : [reference])
-      .map(file => `@reference "${resolve(root, file)}";`)
+      .map(file => `@reference "${resolve(root, file).replace(/\\/g, "/")}";`)
       .join("\n");
 
   return {
